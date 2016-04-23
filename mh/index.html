@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>mh</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="http://maps.googleapis.com/maps/api/js"></script>
+		<script>
+	
+		
+		function loadMap (p){
+			
+		
+			var fmp = {
+				center: new google.maps.LatLng(p.coords.latitude, p.coords.longitude),
+				zoom:10,
+				mapTypeId:google.maps.MapTypeId.ROADMAP
+			};
+			
+			var map=new google.maps.Map(document.getElementById("mhmap"), fmp);
+		
+		}
+		
+		
+		function load(){
+			if (!navigator.geolocation){
+				alert('Location Finder isn\'t supported. :(');
+				return;
+			}
+			
+			navigator.geolocation.getCurrentPosition(loadMap);
+			
+		}
+		</script>
+	</head>
+	<body onload="load();">		
+		<main role="main">
+		<div id="mhmap", style="width:65%;height:50%;margin:0 auto;"></div>
+		
+		</main>
+	</body>
+<html>
